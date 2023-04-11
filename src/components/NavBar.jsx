@@ -7,12 +7,13 @@ const NavBar = ({pokemonIndex, setPokemonIndex, pokemonList}) => {
       }
     return (
         <nav>
-        {pokemonIndex > 0 && (
-        <button type='button' onClick={toPrevious}>Previous</button>
-        )}
-        {pokemonIndex < pokemonList.length -1 &&(
-        <button type='button' onClick={toNext}>Next</button>
-        )}
+          {pokemonList.map((pokemon, index) =>
+          (
+            <>
+            <button type="button" onClick={()=>setPokemonIndex(index)} key={pokemon.name}>{pokemon.name}</button>
+            </>
+          )
+          )}
       </nav>
     );
 };
